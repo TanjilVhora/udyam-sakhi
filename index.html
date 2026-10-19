@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Udyam Sakhi: workflow and tech stack | Team CodeTitans</title>
+  <meta name="description" content="Udyam Sakhi is a voice-first assistant that helps rural women entrepreneurs find the right loan, training and market. Workflow, tech stack and data roadmap.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top">
+    <div class="wrap top-row">
+      <a class="brand" href="#top">Udyam Sakhi</a>
+      <nav aria-label="Page sections">
+        <a href="#workflow">Workflow</a>
+        <a href="#stack">Tech stack</a>
+        <a href="#pack">Highlight</a>
+        <a href="#data">Data roadmap</a>
+        <a href="#scope">Scope</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero wrap" id="top">
+      <div class="hero-copy">
+        <h1>A rural woman says what her business needs. Udyam Sakhi tells her what to do next.</h1>
+        <p class="lead">A voice-first, mobile-friendly web app that matches rural women entrepreneurs to verified loans, training and markets, in their own language.</p>
+        <p class="meta">Team CodeTitans &nbsp;|&nbsp; Problem statement: Digital Platform for Rural Women Entrepreneurs</p>
+        <p class="actions"><a class="btn" href="#workflow">See the workflow</a><a class="btn ghost" href="#stack">See the tech stack</a></p>
+      </div>
+
+      <figure class="exchange" aria-label="Example of one conversation">
+        <figcaption>Illustrative example of one conversation</figcaption>
+        <div class="say">
+          <p class="who">She says</p>
+          <p class="hi" lang="hi">मैं घर पर पापड़ बनाती हूँ और स्वयं सहायता समूह की सदस्य हूँ। काम बढ़ाने के लिए मुझे लोन चाहिए।</p>
+          <p class="tr">I make papad at home and I’m in a self-help group. I need a loan to grow my work.</p>
+        </div>
+        <div class="step-link" aria-hidden="true">becomes a profile</div>
+        <dl class="profile">
+          <div><dt>Business</dt><dd>Food, papad, home-based</dd></div>
+          <div><dt>Need</dt><dd>Loan to grow</dd></div>
+          <div><dt>Group</dt><dd>Self-help group member</dd></div>
+        </dl>
+        <div class="step-link" aria-hidden="true">is matched to</div>
+        <ol class="matches">
+          <li>A small business loan scheme she is eligible for</li>
+          <li>Food-processing training near her</li>
+          <li>A market link for her product</li>
+        </ol>
+        <p class="spoken">Each result is read aloud in her language.</p>
+      </figure>
+    </section>
+
+    <!-- WORKFLOW -->
+    <section class="section wrap" id="workflow">
+      <h2>How it works, step by step</h2>
+      <p class="section-intro">Five steps from her voice to a spoken answer. One FastAPI backend sits between the browser and every other service.</p>
+
+      <ol class="flow">
+        <li>
+          <span class="badge">1</span>
+          <h3>She speaks or types</h3>
+          <p>She opens a link on her phone, taps her language and answers a few easy questions. Typing works too.</p>
+          <p class="tags"><span>Next.js web app</span></p>
+        </li>
+        <li>
+          <span class="badge">2</span>
+          <h3>Voice becomes text</h3>
+          <p>Speech is converted to text in Hindi, with Gujarati next. She sees what was heard and confirms it.</p>
+          <p class="tags"><span>Bhashini</span><span>Sarvam backup</span></p>
+        </li>
+        <li>
+          <span class="badge">3</span>
+          <h3>Answers become a profile</h3>
+          <p>The AI reads her answers and fills a short profile: business, need, place and group membership.</p>
+          <p class="tags"><span>Gemini Flash</span></p>
+        </li>
+        <li>
+          <span class="badge">4</span>
+          <h3>Rules find the matches</h3>
+          <p>The backend compares her profile with the verified database and returns the best three. The AI never decides who is eligible.</p>
+          <p class="tags"><span>FastAPI</span><span>Verified JSON</span></p>
+        </li>
+        <li>
+          <span class="badge">5</span>
+          <h3>She hears the result</h3>
+          <p>A short plain-language explanation is read aloud, shown as three cards, and packed into a PDF.</p>
+          <p class="tags"><span>Gemini</span><span>Text to speech</span><span>PDF</span></p>
+        </li>
+      </ol>
+
+      <p class="rule"><strong>The rule behind it:</strong> the AI explains, the rules decide. Eligibility comes from checked data with a source link, so a wrong guess cannot reach her.</p>
+    </section>
+
+    <!-- TECH STACK -->
+    <section class="section wrap" id="stack">
+      <h2>Tech stack, and why we chose each part</h2>
+      <p class="section-intro">Everything below has a free tier or free developer access, so the prototype costs nothing to run.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Part</th><th scope="col">Our choice</th><th scope="col">Why</th><th scope="col">Other options</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Interface</th>
+              <td data-label="Our choice">Next.js web app (PWA) on Vercel</td>
+              <td data-label="Why">Opens from a link, installs to the home screen and stays light on basic phones.</td>
+              <td data-label="Other options">Telegram or WhatsApp bot, Flutter app</td>
+            </tr>
+            <tr>
+              <th scope="row">Backend</th>
+              <td data-label="Our choice">FastAPI (Python) on Render</td>
+              <td data-label="Why">Quick to build, and Python keeps the AI and data work simple.</td>
+              <td data-label="Other options">Node and Express, Flask</td>
+            </tr>
+            <tr>
+              <th scope="row">Speech</th>
+              <td data-label="Our choice">Bhashini, with Sarvam as backup</td>
+              <td data-label="Why">Built for Indian languages. Bhashini is free for developers after registration; Sarvam gives instant starter credits.</td>
+              <td data-label="Other options">Google Speech, Whisper</td>
+            </tr>
+            <tr>
+              <th scope="row">AI model</th>
+              <td data-label="Our choice">Gemini Flash</td>
+              <td data-label="Why">Free tier, handles Hindi and Gujarati, and returns structured JSON for the profile.</td>
+              <td data-label="Other options">Claude, GPT, open-source Llama</td>
+            </tr>
+            <tr>
+              <th scope="row">Matching</th>
+              <td data-label="Our choice">Rules engine in Python</td>
+              <td data-label="Why">Predictable: the same profile always gives the same answer, and it is easy to explain.</td>
+              <td data-label="Other options">Vector search over documents</td>
+            </tr>
+            <tr>
+              <th scope="row">Data</th>
+              <td data-label="Our choice">Verified JSON now, Supabase next</td>
+              <td data-label="Why">A small checked list is more reliable than scraped pages that break.</td>
+              <td data-label="Other options">Pinecone, Chroma</td>
+            </tr>
+            <tr>
+              <th scope="row">Application pack</th>
+              <td data-label="Our choice">HTML to PDF</td>
+              <td data-label="Why">Simple to build, easy to share and print.</td>
+              <td data-label="Other options">Word export</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Free-tier AI services may use inputs to improve their models, so the prototype runs on sample data only and never on real users’ details.</p>
+    </section>
+
+    <!-- HIGHLIGHT -->
+    <section class="section wrap pack-section" id="pack">
+      <div class="pack-copy">
+        <h2>What makes it different: the Voice-to-Application Pack</h2>
+        <p>Most tools stop at information. We turn the conversation into something she can carry to the bank or service centre: a pre-filled business profile, a document checklist and spoken next steps.</p>
+        <p>In our research we found no existing tool that does this.</p>
+      </div>
+      <figure class="paper" aria-label="Example application pack">
+        <figcaption>Example pack</figcaption>
+        <h3>Business profile</h3>
+        <p>Papad making, home-based, self-help group member. Needs a loan to grow.</p>
+        <h3>Documents to carry</h3>
+        <ul class="check">
+          <li>Identity proof</li>
+          <li>Bank passbook copy</li>
+          <li>Self-help group membership proof</li>
+          <li>Photos of her products</li>
+        </ul>
+        <h3>Next steps, spoken aloud</h3>
+        <p>Where to go, who to ask for, and what to say.</p>
+      </figure>
+    </section>
+
+    <!-- DATA ROADMAP -->
+    <section class="section wrap" id="data">
+      <h2>Data roadmap: how the database grows</h2>
+      <p class="section-intro">We start with a small, hand-checked list and replace it in stages, so answers stay correct as the product grows.</p>
+      <ol class="timeline">
+        <li>
+          <h3>Now: the hackathon</h3>
+          <p>30 to 50 hand-verified entries in a JSON file. Each has eligibility, documents, an official link and a last-verified date.</p>
+        </li>
+        <li>
+          <h3>Next: partners verify</h3>
+          <p>Move to Supabase and add an admin panel where NGOs, self-help group federations and block offices add and verify local entries.</p>
+        </li>
+        <li>
+          <h3>Later: stays fresh</h3>
+          <p>A freshness checker flags old entries, official sources feed the database, and “did this work for you?” feedback improves the ranking.</p>
+        </li>
+        <li>
+          <h3>At scale: lower cost</h3>
+          <p>Self-hosted open Indian-language speech models, cached audio for common answers, and each new state or language added as a data pack, not new code.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- SCOPE -->
+    <section class="section wrap" id="scope">
+      <h2>What we build now, and what comes later</h2>
+      <div class="two-col">
+        <div>
+          <h3>Built during the hack</h3>
+          <ul>
+            <li>Voice or text input in Hindi, Gujarati if time allows</li>
+            <li>Five-question profile</li>
+            <li>Rules matching on 30 to 50 verified entries</li>
+            <li>Spoken and written results</li>
+            <li>PDF application pack and a live demo link</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Planned for later</h3>
+          <ul>
+            <li>WhatsApp channel</li>
+            <li>Dashboard for self-help group leaders</li>
+            <li>Follow-up reminders</li>
+            <li>Offline mode</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="metrics">
+        <p><span class="big">80%+</span> correct matches on 30 test profiles</p>
+        <p><span class="big">Under 2 min</span> from first question to first relevant result</p>
+      </div>
+      <p class="note">These are our targets for the prototype, measured on a hand-labelled test set.</p>
+
+      <h3 class="risk-title">Risks we plan for</h3>
+      <ul class="risks">
+        <li><strong>Speech errors.</strong> She confirms what was heard, and typing is always available.</li>
+        <li><strong>Outdated data.</strong> Every result shows an official link and a last-verified date.</li>
+        <li><strong>Privacy.</strong> No login, and audio is not stored.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <p><strong>Team CodeTitans.</strong> Asmita Turate.</p>
+      <p>Hackathon prototype using example data. Check scheme details on the official websites before applying.</p>
+    </div>
+  </footer>
+</body>
+</html>
